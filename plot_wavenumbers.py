@@ -73,6 +73,5 @@ plt.xlim([None,0.5])
 lg = plt.legend(loc='center right')
 lg.draw_frame(False)
 
-#plt.savefig('wavenumbers.png', dpi=300)
 plt.savefig('wavenumbers.eps')
 

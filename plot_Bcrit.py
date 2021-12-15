@@ -76,6 +76,5 @@ plt.ylabel(r'$B_{\rm crit} \ ({\rm G})$')
 lg = plt.legend(loc='upper left')
 lg.draw_frame(False)
 
-#plt.savefig('Bcrit.png', dpi=300)
 plt.savefig('Bcrit.eps')
 

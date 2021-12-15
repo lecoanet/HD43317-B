@@ -10,14 +10,6 @@ import pickle
 rank = MPI.COMM_WORLD.rank
 size = MPI.COMM_WORLD.size
 
-weak = True
-if weak:
-    f_obs = 0.69162
-    name = 'wavenumbers_weak.pkl'
-else:
-    f_obs = 0.6
-    name = 'wavenumbers_strong.pkl'
-
 data = np.loadtxt('best.data.GYRE')
 r = data[:,1]
 rho = data[:,6]
@@ -121,7 +113,7 @@ logB = np.linspace(5.4, 7.2, num=500, endpoint=True)
 Br0_list = 10**(logB) # G
 Br_list = Br0_list*(r_spike/r)**3/np.sqrt(4*np.pi*rho) # radial alfven velocity
 
-file = 'm5800_z014_ov004_profile_at_xc540_l2m2_frequencies.ad'
+file = 'GYRE/m5800_z014_ov004_profile_at_xc540_l2m2_frequencies.ad'
 mode_data = gyre.load_summary(file)
 
 f_list =  np.array(mode_data['Refreq'][-5])
@@ -131,15 +123,7 @@ n_pg_list =  np.array(mode_data['n_pg'][-5])
 
 num = -20
 
-#file = 'm5800_z014_ov004_profile_at_xc540_l1m1_frequencies.ad'
-#mode_data = gyre.load_summary(file)
-#
-#f_list =  np.concatenate( ((f_list,), np.array(mode_data['Refreq'][num:])) )
-#m_list = np.concatenate( ((m_list,), np.array(mode_data['m'][num:])) )
-#ell_list = np.concatenate( ((ell_list,), np.array(mode_data['l'][num:])) )
-#n_pg_list = np.concatenate( ((n_pg_list,), np.array(mode_data['n_pg'][num:])) )
-
-file = 'm5800_z014_ov004_profile_at_xc540_l1m-1_frequencies.ad'
+file = 'GYRE/m5800_z014_ov004_profile_at_xc540_l1m-1_frequencies.ad'
 mode_data = gyre.load_summary(file)
 
 f_list =  np.concatenate( ((f_list,), np.array(mode_data['Refreq'][num:])) )
@@ -147,7 +131,7 @@ m_list = np.concatenate( ((m_list,), np.array(mode_data['m'][num:])) )
 ell_list = np.concatenate( ((ell_list,), np.array(mode_data['l'][num:])) )
 n_pg_list = np.concatenate( ((n_pg_list,), np.array(mode_data['n_pg'][num:])) )
 
-file = 'm5800_z014_ov004_profile_at_xc540_l2m-1_frequencies.ad'
+file = 'GYRE/m5800_z014_ov004_profile_at_xc540_l2m-1_frequencies.ad'
 mode_data = gyre.load_summary(file)
 
 f_list =  np.concatenate( (f_list, np.array(mode_data['Refreq'][num:])) )
@@ -198,11 +182,6 @@ for mode_index in range(len(f_list)):
         i = np.argsort(Br_list)
         Br_list = Br_list[i]
         kr_list = np.array(kr_list)[i]
-    
-        for i in range(len(Br_list)):
-            print(i)
-            print(Br_list[i])
-            print(kr_list[i])
     
         for i in range(len(Br_list)):
             if len(kr_list[i]) < ell:

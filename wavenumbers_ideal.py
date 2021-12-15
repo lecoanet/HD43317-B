@@ -12,14 +12,14 @@ size = MPI.COMM_WORLD.size
 
 ell = 2
 if ell == 1:
-    file = 'm5800_z014_ov004_profile_at_xc540_l1m-1_frequencies.ad'
+    file = 'GYRE/m5800_z014_ov004_profile_at_xc540_l1m-1_frequencies.ad'
     mode_data = gyre.load_summary(file)
 
     f_obs = mode_data['Refreq'][-10]
     logger.info(f_obs)
     name = 'wavenumbers_ell1.pkl'
 else:
-    file = 'm5800_z014_ov004_profile_at_xc540_l2m-1_frequencies.ad'
+    file = 'GYRE/m5800_z014_ov004_profile_at_xc540_l2m-1_frequencies.ad'
     mode_data = gyre.load_summary(file)
 
     f_obs = mode_data['Refreq'][-14]

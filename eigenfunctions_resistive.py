@@ -27,7 +27,7 @@ basis2 = d3.SphereBasis(coords, (Nphi, Nhres), radius=1, dtype=dtype)
 Prot = 0.897673
 f_rot = 1/Prot
 
-file = 'm5800_z014_ov004_profile_at_xc540_l2m-1_frequencies.ad'
+file = 'GYRE/m5800_z014_ov004_profile_at_xc540_l2m-1_frequencies.ad'
 mode_data = gyre.load_summary(file)
 f_obs = mode_data['Refreq'][-15]
 logger.info(f_obs)

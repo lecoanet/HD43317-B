@@ -11,7 +11,7 @@ rank = MPI.COMM_WORLD.rank
 size = MPI.COMM_WORLD.size
 
 weak = True
-file = 'm5800_z014_ov004_profile_at_xc540_l2m-1_frequencies.ad'
+file = 'GYRE/m5800_z014_ov004_profile_at_xc540_l2m-1_frequencies.ad'
 mode_data = gyre.load_summary(file)
 if weak: 
     f_obs = mode_data['Refreq'][-14]

@@ -123,11 +123,6 @@ def calc_Bc(f_obs, m, ell, N2_0, R, Br_list):
         Br_list = Br_list[i]
         kr_list = np.array(kr_list)[i]
         
-#        for i in range(len(Br_list)):
-#            print(i)
-#            print(Br_list[i])
-#            print(kr_list[i])
-            
         for i in range(len(Br_list)):
             if len(kr_list[i]) < ell:
                 break
