@@ -66,7 +66,7 @@ res2 = 192
 
 basis_lres = d3.SphereBasis(coords, (Nphi, res1), radius=1, dtype=dtype)
 basis_hres = d3.SphereBasis(coords, (Nphi, res2), radius=1, dtype=dtype)
-phi, theta = basis_hres.local_grids()
+phi, theta = dist.local_grids(basis_hres)
 
 # Substitutions
 zcross = lambda A: d3.MulCosine(d3.skew(A))
